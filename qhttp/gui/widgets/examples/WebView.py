@@ -1,7 +1,7 @@
 # coding=utf8
 
 import os
-from qhttp.gui.widgets.webview.WebView import BaseView
+from qhttp.gui.widgets.WebView import BaseView
 
 DEFAULT_PORT = 8888
 DEFAULT_STATIC_PATH = os.path.dirname(os.path.abspath(__file__)) + "/static/"

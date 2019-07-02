@@ -1,5 +1,6 @@
 # coding=utf8
 
+from abc import ABCMeta
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
@@ -28,7 +29,7 @@ def verify(function):
     return wrapped
 
 
-class BaseView(QWebEngineView):
+class AbstractView(QWebEngineView, metaclass=ABCMeta):
     def __init__(self, port, static_path, parent=None):
         QWebEngineView.__init__(self, parent)
 
