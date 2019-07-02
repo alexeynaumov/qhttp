@@ -25,7 +25,7 @@ import tornado.gen
 import tornado.ioloop
 import tornado.platform.asyncio
 
-from PyQt5.QtCore import QCoreApplication, QThread, QEvent
+from PyQt5.QtCore import QCoreApplication, QThread, QEvent, QObject
 from PyQt5.QtWidgets import QApplication
 
 CODE_GET = QEvent.User + 128
