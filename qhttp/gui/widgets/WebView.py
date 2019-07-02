@@ -1,6 +1,6 @@
 # coding=utf8
 
-from abc import ABCMeta
+from abc import abstractmethod
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
@@ -29,7 +29,7 @@ def verify(function):
     return wrapped
 
 
-class AbstractView(QWebEngineView, metaclass=ABCMeta):
+class AbstractView(QWebEngineView):
     def __init__(self, port, static_path, parent=None):
         QWebEngineView.__init__(self, parent)
 
@@ -39,3 +39,16 @@ class AbstractView(QWebEngineView, metaclass=ABCMeta):
         self.httpServer.listen()
 
         self.load(QUrl("http://127.0.0.1:{}".format(self.httpServer.port)))
+
+
+if "__main__" == __name__:
+    import os
+    import sys
+    from PyQt5.QtWidgets import QApplication
+
+    application = QApplication(sys.argv)
+
+    view = AbstractView(port=8888, static_path=os.path.dirname(os.path.abspath(__file__)) + "/static/")
+    view.show()
+
+    sys.exit(application.exec_())
